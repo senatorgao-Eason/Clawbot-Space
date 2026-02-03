@@ -1,45 +1,19 @@
 {
-  "messages": {
-    "ackReactionScope": "group-mentions"
+  "meta": {
+    "lastTouchedVersion": "2026.2.1",
+    "lastTouchedAt": "2026-02-03T03:25:17.424Z"
   },
-  "agents": {
-    "defaults": {
-      "maxConcurrent": 4,
-      "subagents": {
-        "maxConcurrent": 8
-      },
-      "compaction": {
-        "mode": "safeguard"
-      },
-      "workspace": "/home/codespace/.openclaw/workspace",
-      "models": {
-        "qwen-portal/coder-model": {
-          "alias": "qwen"
-        },
-        "qwen-portal/vision-model": {}
-      },
-      "model": {
-        "primary": "qwen-portal/coder-model"
-      }
-    }
+  "wizard": {
+    "lastRunAt": "2026-02-03T03:25:17.418Z",
+    "lastRunVersion": "2026.2.1",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
   },
-  "gateway": {
-    "mode": "local",
-    "auth": {
-      "mode": "token",
-      "token": "57d1b442280792b2fda44121bff714d5b2b208939244daa8"
-    },
-    "port": 18789,
-    "bind": "loopback",
-    "tailscale": {
-      "mode": "off",
-      "resetOnExit": false
-    }
-  },
-  "plugins": {
-    "entries": {
-      "qwen-portal-auth": {
-        "enabled": true
+  "auth": {
+    "profiles": {
+      "qwen-portal:default": {
+        "provider": "qwen-portal",
+        "mode": "oauth"
       }
     }
   },
@@ -87,22 +61,64 @@
       }
     }
   },
-  "auth": {
-    "profiles": {
-      "qwen-portal:default": {
-        "provider": "qwen-portal",
-        "mode": "oauth"
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "qwen-portal/coder-model"
+      },
+      "models": {
+        "qwen-portal/coder-model": {
+          "alias": "qwen"
+        },
+        "qwen-portal/vision-model": {}
+      },
+      "workspace": "/home/codespace/.openclaw/workspace",
+      "compaction": {
+        "mode": "safeguard"
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
       }
     }
   },
-  "wizard": {
-    "lastRunAt": "2026-02-03T02:24:14.759Z",
-    "lastRunVersion": "2026.2.1",
-    "lastRunCommand": "onboard",
-    "lastRunMode": "local"
+  "messages": {
+    "ackReactionScope": "group-mentions"
   },
-  "meta": {
-    "lastTouchedVersion": "2026.2.1",
-    "lastTouchedAt": "2026-02-03T02:24:14.766Z"
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto"
+  },
+  "gateway": {
+    "port": 18789,
+    "mode": "local",
+    "bind": "loopback",
+    "auth": {
+      "mode": "token",
+      "token": "57d1b442280792b2fda44121bff714d5b2b208939244daa8"
+    },
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    }
+  },
+  "plugins": {
+    "entries": {
+      "qwen-portal-auth": {
+        "enabled": true
+      },
+      "feishu": {
+        "enabled": true
+      }
+    },
+    "installs": {
+      "feishu": {
+        "source": "npm",
+        "spec": "@m1heng-clawd/feishu",
+        "installPath": "/home/codespace/.openclaw/extensions/feishu",
+        "version": "0.1.6",
+        "installedAt": "2026-02-03T03:11:57.380Z"
+      }
+    }
   }
 }
